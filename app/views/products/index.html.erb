@@ -1,20 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Produits</h1>
+<h1 class='text-align-center'>Produits</h1>
 
+<div class="row">
+  <div class='col-md-3'>
 <%= search_form_for @q do |f| %>
   <%= f.label :Libelle %>
   <%= f.search_field :title_cont %>
-
+<br>
   <%= f.label :prixHT %>
   <%= f.search_field :price_ht_eq %>
-
+<br>
   <%= f.label :TauxTVA %>
   <%= f.search_field :taux_tva_eq %>
-
+<br>
   <%= f.submit %>
 <% end %>
-
+</div>
+<div class='col-md-9'>
 <table>
   <thead>
     <tr>
@@ -51,3 +54,5 @@
 
 
 <%= link_to 'New Product', new_product_path %>
+</div>
+</div>

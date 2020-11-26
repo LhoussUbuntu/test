@@ -2,30 +2,48 @@
 
 <h1>Clients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Email</th>
-      <th>Encours</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='row'>
+  <div class='col-md-3'>
+    <%= search_form_for @q do |f| %>
 
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.nom %></td>
-        <td><%= client.email %></td>
-        <td><%= client.encours %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= f.label :nom %>
+      <%= f.search_field :nom_cont %>
+      <br>
+      <%= f.label :email %>
+      <%= f.search_field :email_cont %>
+      <br>
+      <%= f.label :encours %>
+      <%= f.search_field :encours_eq %>
+      <br>
+      <%= f.submit %>
+      <% end %>
+  </div>
 
-<br>
+  <div class='col-md-9'>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Encours</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Client', new_client_path %>
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td><%= client.nom %></td>
+            <td><%= client.email %></td>
+            <td><%= client.encours %></td>
+            <td><%= link_to 'Show', client %></td>
+            <td><%= link_to 'Edit', edit_client_path(client) %></td>
+            <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <%= link_to 'New Client', new_client_path %>
+</div>
