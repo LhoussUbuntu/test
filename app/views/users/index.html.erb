@@ -1,8 +1,18 @@
 <h1>Users</h1>
 
-<% @users.each do |user| %>
-   <h3><%= user.email %><h3>
-   <% user.roles.each do |role| %>
-      <h4><%= role.name %></h4>
-   <% end %>
-<% end %>
+<table class="table">
+   <% @users.each do |user| %>
+   <thead>
+      <tr>
+         <th scope="col">#</th>
+         <th scope="col">email</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <th scope="row"><%= user.id%></th>
+         <td><%= user.email%></td>
+      </tr>
+   </tbody>
+  <% end %>
+</table>
