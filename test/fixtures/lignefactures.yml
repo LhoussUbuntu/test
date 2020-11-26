@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code_produit: 1
+  quantite: 1
+  prix_unitaire_ht: 1.5
+  facture: one
+  product: one
+
+two:
+  code_produit: 1
+  quantite: 1
+  prix_unitaire_ht: 1.5
+  facture: two
+  product: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_135715) do
+ActiveRecord::Schema.define(version: 2020_11_26_144537) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nom"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(version: 2020_11_26_135715) do
     t.string "mode_reglement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "client_id"
+    t.integer "user_id"
+  end
+
+  create_table "lignefactures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "code_produit"
+    t.integer "quantite"
+    t.float "prix_unitaire_ht"
+    t.bigint "facture_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facture_id"], name: "index_lignefactures_on_facture_id"
+    t.index ["product_id"], name: "index_lignefactures_on_product_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -76,5 +90,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_135715) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "lignefactures", "factures"
+  add_foreign_key "lignefactures", "products"
   add_foreign_key "products", "users"
 end

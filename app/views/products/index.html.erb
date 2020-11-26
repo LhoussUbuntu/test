@@ -18,9 +18,9 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Price ht</th>
-      <th>Taux tva</th>
+      <th>Libelle</th>
+      <th>prixHT</th>
+      <th>TauxTVA</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -48,3 +48,6 @@
     <%= submit_tag 'import file'%>
   <% end %>
 <% end %>
+
+
+<%= link_to 'New Product', new_product_path %>
