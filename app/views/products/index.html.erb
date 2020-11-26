@@ -1,6 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Produits</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :Libelle %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.label :prixHT %>
+  <%= f.search_field :price_ht_eq %>
+
+  <%= f.label :TauxTVA %>
+  <%= f.search_field :taux_tva_eq %>
+
+  <%= f.submit %>
+<% end %>
 
 <table>
   <thead>
@@ -27,9 +40,11 @@
 </table>
 
 <br>
-<h3> Importer les produits</h3>
+<% if current_user.has_role? :admin %>
+  <h3> Importer les produits</h3>
 
-<%= form_tag import_products_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag 'import file'%>
+  <%= form_tag import_products_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag 'import file'%>
+  <% end %>
 <% end %>
