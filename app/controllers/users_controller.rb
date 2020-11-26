@@ -7,6 +7,21 @@ class UsersController < ApplicationController
     end
   
     def show; end
+
+    def add_user
+      @user = User.create(car_params)
+      respond_to do |format|
+        if @memo.valid?
+          format.html { redirect_to root_path, notice: 'Utilisateur was successfully created.' }
+        else
+          format.html { render :add_user }
+        end
+      end
+    end
+
+    def form_user
+      @user = User.new
+    end
   
     private
   
@@ -15,6 +30,6 @@ class UsersController < ApplicationController
     end
   
     def users_params
-      params.require(:user).permit(:id)
+      params.permit(:id)
     end
 end

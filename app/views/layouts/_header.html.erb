@@ -16,7 +16,7 @@
           <% else %>
           <% if current_user.has_role? :admin %>
             <li class="nav-item">
-                <%= link_to "Add utilisateur", "#", class: "nav-link" %>
+                <%= link_to "Add utilisateur", form_user_path, class: "nav-link" %>
             </li>
           <% end %>
           <li class="nav-item dropdown">
