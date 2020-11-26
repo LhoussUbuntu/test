@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :products do 
+    collection {post :import}
+  end
+  resources :users, only: [:index]
   devise_for :users
   root to: "users#index"
 
