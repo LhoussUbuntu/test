@@ -14,8 +14,14 @@
             <%= link_to "log in", new_user_session_path, class: "nav-link" %>
           </li>
           <% else %>
-          <li class="nav-item">
+            <li class="nav-item">
                 <%= link_to "Produits", products_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Clients", clients_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Facture", factures_path, class: "nav-link" %>
             </li>
           <% if current_user.has_role? :admin %>
             <li class="nav-item">
@@ -36,3 +42,5 @@
       </div>
     </nav>
 </div>
+
+  

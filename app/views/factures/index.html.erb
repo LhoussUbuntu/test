@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Factures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>N facute</th>
+      <th>Date</th>
+      <th>Code client</th>
+      <th>Cree bar</th>
+      <th>Montant ttc</th>
+      <th>Montant ht</th>
+      <th>Montant tva</th>
+      <th>Est valid</th>
+      <th>Est regle</th>
+      <th>Mode reglement</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @factures.each do |facture| %>
+      <tr>
+        <td><%= facture.n_facute %></td>
+        <td><%= facture.date %></td>
+        <td><%= facture.code_client %></td>
+        <td><%= facture.cree_bar %></td>
+        <td><%= facture.montant_ttc %></td>
+        <td><%= facture.montant_ht %></td>
+        <td><%= facture.montant_tva %></td>
+        <td><%= facture.est_valid %></td>
+        <td><%= facture.est_regle %></td>
+        <td><%= facture.mode_reglement %></td>
+        <td><%= link_to 'Show', facture %></td>
+        <td><%= link_to 'Edit', edit_facture_path(facture) %></td>
+        <td><%= link_to 'Destroy', facture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facture', new_facture_path %>

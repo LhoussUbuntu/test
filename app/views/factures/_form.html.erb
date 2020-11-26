@@ -1,0 +1,67 @@
+<%= form_with(model: facture, local: true) do |form| %>
+  <% if facture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(facture.errors.count, "error") %> prohibited this facture from being saved:</h2>
+
+      <ul>
+        <% facture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :n_facute %>
+    <%= form.number_field :n_facute %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code_client %>
+    <%= form.text_field :code_client %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cree_bar %>
+    <%= form.number_field :cree_bar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant_ttc %>
+    <%= form.text_field :montant_ttc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant_ht %>
+    <%= form.number_field :montant_ht %>
+  </div>
+
+  <div class="field">
+    <%= form.label :montant_tva %>
+    <%= form.number_field :montant_tva %>
+  </div>
+
+  <div class="field">
+    <%= form.label :est_valid %>
+    <%= form.check_box :est_valid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :est_regle %>
+    <%= form.check_box :est_regle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mode_reglement %>
+    <%= form.text_field :mode_reglement %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

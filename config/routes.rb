@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :factures
+  resources :clients
   resources :products do 
     collection {post :import}
   end

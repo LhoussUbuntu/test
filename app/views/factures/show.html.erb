@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>N facute:</strong>
+  <%= @facture.n_facute %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @facture.date %>
+</p>
+
+<p>
+  <strong>Code client:</strong>
+  <%= @facture.code_client %>
+</p>
+
+<p>
+  <strong>Cree bar:</strong>
+  <%= @facture.cree_bar %>
+</p>
+
+<p>
+  <strong>Montant ttc:</strong>
+  <%= @facture.montant_ttc %>
+</p>
+
+<p>
+  <strong>Montant ht:</strong>
+  <%= @facture.montant_ht %>
+</p>
+
+<p>
+  <strong>Montant tva:</strong>
+  <%= @facture.montant_tva %>
+</p>
+
+<p>
+  <strong>Est valid:</strong>
+  <%= @facture.est_valid %>
+</p>
+
+<p>
+  <strong>Est regle:</strong>
+  <%= @facture.est_regle %>
+</p>
+
+<p>
+  <strong>Mode reglement:</strong>
+  <%= @facture.mode_reglement %>
+</p>
+
+<%= link_to 'Edit', edit_facture_path(@facture) %> |
+<%= link_to 'Back', factures_path %>
